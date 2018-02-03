@@ -72,6 +72,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
         geolocation = latitude+","+longitude;
 
+        Log.d(TAG, "onLocationChanged: " + geolocation);
     }
 
     @Override
