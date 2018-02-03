@@ -1,11 +1,13 @@
 package com.note.cesar.weathersubmit.api;
 
-import com.note.cesar.weathersubmit.models.Country;
-import com.note.cesar.weathersubmit.models.Versionone;
+import com.note.cesar.weathersubmit.models.AccuWeatherModel;
+
+import java.util.List;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
 import retrofit2.http.Path;
+import retrofit2.http.Query;
 
 /**
  * Created by shekh on 03-02-2018.
@@ -14,11 +16,11 @@ import retrofit2.http.Path;
 public interface APIInterface {
 
 
-    @GET("/currentconditions/v1/{Key}?apikey=P6eflaANHkOikO2vBjlId8H4XcQGc3YP HTTP/1.1")
-    Call<Versionone> getTempByKey(@Path("Key") String Key);
+    @GET("currentconditions/v1/{key}")
+    Call<AccuWeatherModel> getAccuWeatherData(@Path("key") String cityKey, @Query("apikey") String appId);
 
-    @GET("/locations/v1/cities/geoposition/search.json?{q}&apikey=P6eflaANHkOikO2vBjlId8H4XcQGc3YP&q=28.74210649%2C77.1164629\"")
-    Call<Versionone> getKeyByGeoposition(@Path("q") String geoposition);
+    @GET("/locations/v1/cities/geoposition/search")
+    Call<AccuWeatherModel> getKeyByGeoposition(@Query("apikey") String appId, @Query("q") String query);
 
 
 

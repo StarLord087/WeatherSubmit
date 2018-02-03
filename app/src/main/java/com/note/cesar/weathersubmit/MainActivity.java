@@ -16,11 +16,7 @@ import android.util.Log;
 import android.widget.TextView;
 
 import com.note.cesar.weathersubmit.api.ApiService;
-import com.note.cesar.weathersubmit.models.Country;
-import com.note.cesar.weathersubmit.models.Versionone;
-
-import java.util.ArrayList;
-import java.util.Arrays;
+import com.note.cesar.weathersubmit.models.AccuWeatherModel;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -59,19 +55,10 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             startLocUpates();
         }
 
+        Log.d(TAG, "onCreate: "+ geolocation+" " + API_KEY);
 
-        ApiService.getApiInterface().getKeyByGeoposition(geolocation).enqueue(new Callback<Versionone>() {
-            @Override
-            public void onResponse(Call<Versionone> call, Response<Versionone> response) {
-                key = response.body().getKey();
-            }
 
-            @Override
-            public void onFailure(Call<Versionone> call, Throwable t) {
 
-            }
-        });
-        Log.d(TAG, key);
     }
 
     @Override
