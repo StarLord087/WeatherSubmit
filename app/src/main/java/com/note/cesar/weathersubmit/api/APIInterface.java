@@ -17,7 +17,9 @@ public interface APIInterface {
     @GET("/currentconditions/v1/{Key}?apikey=P6eflaANHkOikO2vBjlId8H4XcQGc3YP HTTP/1.1")
     Call<Versionone> getTempByKey(@Path("Key") String Key);
 
-    @GET("/locations/v1/cities/{geoposition}/search?apikey=P6eflaANHkOikO2vBjlId8H4XcQGc3YP&q=28.74210649%2C77.1164629\"")
-    Call<Versionone> getKeyByGeoposition(@Path("geoposition") String geoposition);
+    @GET("/locations/v1/cities/geoposition/search.json?{q}&apikey=P6eflaANHkOikO2vBjlId8H4XcQGc3YP&q=28.74210649%2C77.1164629\"")
+    Call<Versionone> getKeyByGeoposition(@Path("q") String geoposition);
+
+
 
 }

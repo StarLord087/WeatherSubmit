@@ -59,6 +59,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             startLocUpates();
         }
 
+
         ApiService.getApiInterface().getKeyByGeoposition(geolocation).enqueue(new Callback<Versionone>() {
             @Override
             public void onResponse(Call<Versionone> call, Response<Versionone> response) {
@@ -70,8 +71,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
 
             }
         });
-
-        Log.d(TAG,key);
+        Log.d(TAG, key);
     }
 
     @Override
