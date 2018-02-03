@@ -8,7 +8,16 @@ public class Country {
 
     String ID, EnglishName;
 
+    public void setID(String ID) {
+        this.ID = ID;
+    }
+
+    public void setEnglishName(String englishName) {
+        EnglishName = englishName;
+    }
+
     public String getID() {
+
         return ID;
     }
 

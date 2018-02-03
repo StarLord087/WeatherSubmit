@@ -18,6 +18,6 @@ public interface APIInterface {
     Call<Versionone> getTempByKey(@Path("Key") String Key);
 
     @GET("/locations/v1/cities/{geoposition}/search?apikey=P6eflaANHkOikO2vBjlId8H4XcQGc3YP&q=28.74210649%2C77.1164629\"")
-    Call<Country> getKeyByGeoposition(@Path("geoposition") String geoposition);
+    Call<Versionone> getKeyByGeoposition(@Path("geoposition") String geoposition);
 
 }

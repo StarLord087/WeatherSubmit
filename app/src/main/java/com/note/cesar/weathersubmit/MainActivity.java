@@ -15,10 +15,16 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.note.cesar.weathersubmit.api.ApiService;
+import com.note.cesar.weathersubmit.models.Country;
 import com.note.cesar.weathersubmit.models.Versionone;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
 
 import static android.Manifest.permission.ACCESS_COARSE_LOCATION;
 import static android.Manifest.permission.ACCESS_FINE_LOCATION;
@@ -31,7 +37,7 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
     public static final String API_KEY = "P6eflaANHkOikO2vBjlId8H4XcQGc3YP";
 
     String longitude, latitude;
-    public String geolocation;
+    public String geolocation, key;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,7 +59,19 @@ public class MainActivity extends AppCompatActivity implements LocationListener 
             startLocUpates();
         }
 
+        ApiService.getApiInterface().getKeyByGeoposition(geolocation).enqueue(new Callback<Versionone>() {
+            @Override
+            public void onResponse(Call<Versionone> call, Response<Versionone> response) {
+                key = response.body().getKey();
+            }
 
+            @Override
+            public void onFailure(Call<Versionone> call, Throwable t) {
+
+            }
+        });
+
+        Log.d(TAG,key);
     }
 
     @Override

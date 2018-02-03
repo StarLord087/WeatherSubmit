@@ -17,6 +17,14 @@ public class Versionone {
         return Key;
     }
 
+    public void setLocalizedName(String localizedName) {
+        LocalizedName = localizedName;
+    }
+
+    public void setKey(String key) {
+        Key = key;
+    }
+
     public Versionone(String localizedName, String key) {
 
         LocalizedName = localizedName;
